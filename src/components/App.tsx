@@ -1,15 +1,15 @@
-import '../stylesheets/App.css';
+import "../stylesheets/App.scss";
+import Card from "./Card";
+import Header from "./Header";
+import '../stylesheets/App.scss';
 
 const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>
-          Hi Risingdana :)
-        </h1>
-      </header>
+      <Header />
+      <Card />
     </div>
   );
-}
+};
 
 export default App;
