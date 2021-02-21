@@ -1,13 +1,12 @@
-import "../stylesheets/App.scss";
-import Card from "./Card";
 import Header from "./Header";
+import IdCard from "./IdCard";
 import '../stylesheets/App.scss';
 
 const App = () => {
   return (
     <div className="App">
       <Header />
-      <Card />
+      <IdCard />
     </div>
   );
 };
