@@ -29,7 +29,7 @@ const IdCard = (props: IdCardProps) => {
           <Link to="/scanner">
             <button
               type="button"
-              onClick={handleScanner}
+              onClick={props.handleScanner}
               className="id-card__btn"
             >
               Take picture

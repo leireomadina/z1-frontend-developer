@@ -1,0 +1,58 @@
+@import "./core/reset";
+@import "./core/variables";
+@import "./core/mixins";
+
+.scanner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid red;
+  min-height: 100vh;
+  background-color: $color-bg-dark;
+  color: $color-font-secondary;
+  padding: 100px 30px 48px 30px;
+
+  &__title {
+    font-size: 21px;
+    font-weight: $font-bold;
+    margin-bottom: 16px;
+  }
+
+  &__video-container {
+    padding: 18px 0;
+    border-radius: 12px;
+    min-width: 180px;
+    max-height: 200px;
+  }
+
+  &__video {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  &__btn {
+    display: inline-block;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 0;
+    text-decoration: none;
+    background: transparent;
+    color: $color-font-secondary;
+    font-family: $font-main;
+    font-size: 1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+}
+
+.accepted {
+  border: 2px solid $color-accepted;
+}
+
+.rejected {
+  border: 2px solid $color-rejected;
+}
