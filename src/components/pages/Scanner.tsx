@@ -1,6 +1,6 @@
-import App from "./App";
+import Home from "./Home";
 import { Link } from "react-router-dom";
-import "../stylesheets/Scanner.scss";
+import "../../stylesheets/Scanner.scss";
 
 const Scanner = () => {
   return (
