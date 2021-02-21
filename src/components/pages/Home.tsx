@@ -5,52 +5,38 @@ import Scanner from "./Scanner";
 import { getDataFromApi } from "../../services/api";
 
 import { Route, Switch } from "react-router-dom";
-import '../../stylesheets/Home.scss';
+import "../../stylesheets/Home.scss";
+import { isPropertySignature } from "typescript";
 
 const App = () => {
-
   // states
   const [apiCall, setApiCall] = useState({});
+  const [scannerSuccess, SetScannerSuccess] = useState(false);
 
   // api
-  useEffect(
-    () => {
-      getDataFromApi()
-        .then((data) => {
-          console.log(data);
-          setApiCall(data);
-        })
-        .catch(console.error);
-    },
-    []
-  );
+  useEffect(() => {
+    getDataFromApi()
+      .then((data) => {
+        // console.log(data);
+        setApiCall(data);
+      })
+      .catch(console.error);
+  }, []);
 
-  /*
-  // States
-  const [api, setApi] = useState([]);
-   // API
-   useEffect(
-    () => {
-      Api
-        .then((data) => {
-          setApi(data);
-        })
-        .catch(console.error);
-    },
-    //Empty array so that the first useEffect parameter gets executed only once
-    []
-  );
-  */
- getDataFromApi();
+  const handleScanner = (): void => {
+    console.log("Activado :)");
+  };
 
   return (
     <div className="App">
       <Switch>
         <Route exact path="/">
           <Header />
-          <IdCard />
+          <IdCard handleScanner={handleScanner}/>
         </Route>
-        <Route path="/scanner" component={Scanner}></Route>
+        <Route path="/scanner">
+          <Scanner title="Holi"/>
+        </Route>
       </Switch>
     </div>
   );
