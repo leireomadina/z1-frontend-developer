@@ -2,8 +2,8 @@ import "../stylesheets/Header.scss";
 
 const Header = () => {
   return (
-    <header className="App-header">
-      <h1>BankClient</h1>
+    <header className="home-header">
+      <h1 className="home-header__title">BankClient</h1>
     </header>
   );
 };

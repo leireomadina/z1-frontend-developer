@@ -1,10 +1,14 @@
-.App {
+@import "./core/reset";
+@import "./core/variables";
+@import "./core/mixins";
+
+.home {
   text-align: center;
-  background-color: white;
+  background-color: $color-bg-light;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: black;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header"
+    "main";
 }

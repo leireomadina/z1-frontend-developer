@@ -28,7 +28,7 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <div className="home">
       <Switch>
         <Route exact path="/">
           <Header />
