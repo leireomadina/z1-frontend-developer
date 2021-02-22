@@ -4,12 +4,19 @@ import { Link } from "react-router-dom";
 
 interface IdCardProps {
   openScanner: any;
+  handleScanner: any,
+  imageSrc: string
 }
 
 const IdCard = (props: IdCardProps) => {
   const openScanner = () => {
     props.openScanner();
   };
+
+  const {imageSrc} = props;
+  const handleScanner = (imageSrc: string)=> {
+    props.handleScanner();
+  }
 
   return (
     <main className="home-main">
@@ -21,10 +28,10 @@ const IdCard = (props: IdCardProps) => {
         </p>
         <div className="id-card__img-container">
           <img
-            src={emptyIDCard}
+           src={imageSrc || emptyIDCard}
             alt="Empty ID card"
             title="Empty ID card"
-            className="id-card__image"
+            className={imageSrc ? "accepted" : "id-card__image"}
           />
           <Link to="/scanner">
             <button

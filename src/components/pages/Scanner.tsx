@@ -14,7 +14,7 @@ interface ScannerProps {
 }
 
 const Scanner = (props: ScannerProps) => {
-
+  const {imgSrc, setImgSrc} = props;
   const webcamRef= useRef<any>(null);
 
   // useEffect(() => {
@@ -24,8 +24,7 @@ const Scanner = (props: ScannerProps) => {
   const capture = useCallback(() => {
       const imageSrc = webcamRef.current?.getScreenshot();
       props.handleScanner(imageSrc);
-  }, [webcamRef, props.setImgSrc]);
-
+  }, [webcamRef, setImgSrc]);
 
   return (
     <>
@@ -36,7 +35,7 @@ const Scanner = (props: ScannerProps) => {
             Fit your ID card inside the frame. The picture will be taken automatically.
           </p>
           <button onClick={capture}>Sacar foto</button>
-          {props.imgSrc && <img src={props.imgSrc} alt="" title="" width="200px"/>}
+          {imgSrc && <img src={imgSrc} alt="" title="" width="200px"/>}
           <div className="scanner__video-container">
             <Webcam
               audio={false}

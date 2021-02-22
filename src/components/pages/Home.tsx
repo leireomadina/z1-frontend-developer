@@ -12,6 +12,7 @@ const App = () => {
 
   const [apiCall, setApiCall] = useState({});
   const [imgSrc, setImgSrc] = useState(null);
+  const [isValid, setIsValid] = useState(false);
 
   const openScanner = useEffect(() => {
     getDataFromApi()
@@ -24,13 +25,13 @@ const App = () => {
   const handleScanner = (imageSrc: string) => {
     setImgSrc(imageSrc);
   }
-  
+
   return (
     <div className="home">
       <Switch>
         <Route exact path="/">
           <Header />
-          <IdCard openScanner={openScanner} />
+          <IdCard openScanner={openScanner} handleScanner={handleScanner} imageSrc={imgSrc}/>
         </Route>
         <Route path="/scanner">
           <Scanner handleScanner={handleScanner} imgSrc={imgSrc} setImgSrc={setImgSrc} />
