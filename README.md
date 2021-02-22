@@ -1,10 +1,18 @@
 # Z1 Frontend developer test - Leire
 
-Para realizar la prueba he utilizado **create-react-app** junto con la template de **TypeScript** como esqueleto de la aplicación. Además, he instalado y utilizado las siguientes dependencias:
+Para realizar la prueba he utilizado **React** mediante **create-react-app** y la template de **TypeScript** como esqueleto de la aplicación. Además, he instalado y utilizado las siguientes dependencias:
 
 - **node-sass**: para poder trabajar con SCSS usando variables, nesting, mixins, etc.
 - **react-webcam**: para detectar y activar la cámara del PC del usuario.
 - **react-router-dom**: para definir la estructura de las páginas y su enrutado.
+
+La app consiste en un **escáner** que analiza y valida un documento de identidad del usuario activando la webcam del ordenador.
+
+Por el momento solo está disponible en versión mobile, y ha sido desarrollada siguiendo los estilos definidos por un prototipo dado en **InVision**.
+
+## Resultado
+
+![Mockup mobile](./src/images/mockup-mobile.png)
 
 ## Available Scripts
 
@@ -23,22 +31,3 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.

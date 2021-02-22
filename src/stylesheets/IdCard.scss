@@ -9,6 +9,8 @@
 
 .id-card {
   padding-top: 32px;
+  max-width: 500px;
+  margin: 0 auto;
 
   &__title {
     font-size: 21px;
@@ -59,4 +61,8 @@
 
 .rejected {
   border: 2px solid $color-rejected;
+}
+
+.hidden {
+  display: none;
 }

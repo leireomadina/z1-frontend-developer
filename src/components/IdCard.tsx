@@ -37,7 +37,7 @@ const IdCard = (props: IdCardProps) => {
             <button
               type="button"
               onClick={props.openScanner}
-              className="id-card__btn"
+              className={imageSrc ? "hidden" : "id-card__btn"}
             >
               Take picture
             </button>

@@ -7,12 +7,6 @@ interface Request {
   body: string,
 }
 
-// interface RequestResult {
-//   summary: {
-//     outcome: string,
-//   }
-// }
-
 const requestOptions: Request = {
   method: "POST",
   body: raw,

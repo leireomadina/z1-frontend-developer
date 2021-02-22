@@ -14,7 +14,6 @@ const App = () => {
   const openScanner = useEffect(() => {
     getDataFromApi()
       .then((data) => {
-        console.log(data);
         if (data === "Approved") {
           setIsValid(true);
         } else if (data === "Too Much Glare") {
