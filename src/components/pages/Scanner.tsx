@@ -1,20 +1,31 @@
 import { Link } from "react-router-dom";
 import Webcam from "react-webcam";
-import React, { useState, useCallback, useRef } from "react";
+import React, { useCallback, useRef, useEffect } from "react";
 import "../../stylesheets/Scanner.scss";
 
 const videoConstraints = {
   facingMode: "user",
 };
 
-const Scanner = () => {
-  // state
-  const [imgSrc, setImgSrc] = useState(null);
+interface ScannerProps {
+  imgSrc: string;
+  setImgSrc: any,
+  handleScanner: any;
+}
+
+const Scanner = (props: ScannerProps) => {
+
   const webcamRef= useRef<any>(null);
+
+  // useEffect(() => {
+   
+  // }, 1500);
+
   const capture = useCallback(() => {
       const imageSrc = webcamRef.current?.getScreenshot();
-      setImgSrc(imageSrc);
-  }, [webcamRef, setImgSrc]);
+      props.handleScanner(imageSrc);
+  }, [webcamRef, props.setImgSrc]);
+
 
   return (
     <>
@@ -25,7 +36,7 @@ const Scanner = () => {
             Fit your ID card inside the frame. The picture will be taken automatically.
           </p>
           <button onClick={capture}>Sacar foto</button>
-          {imgSrc && <img src={imgSrc} alt="" title="" width="200px"/>}
+          {props.imgSrc && <img src={props.imgSrc} alt="" title="" width="200px"/>}
           <div className="scanner__video-container">
             <Webcam
               audio={false}

@@ -3,12 +3,12 @@ import emptyIDCard from "../images/ID-empty-card.svg";
 import { Link } from "react-router-dom";
 
 interface IdCardProps {
-  handleScanner: any;
+  openScanner: any;
 }
 
 const IdCard = (props: IdCardProps) => {
-  const handleScanner = () => {
-    props.handleScanner();
+  const openScanner = () => {
+    props.openScanner();
   };
 
   return (
@@ -29,7 +29,7 @@ const IdCard = (props: IdCardProps) => {
           <Link to="/scanner">
             <button
               type="button"
-              onClick={props.handleScanner}
+              onClick={props.openScanner}
               className="id-card__btn"
             >
               Take picture

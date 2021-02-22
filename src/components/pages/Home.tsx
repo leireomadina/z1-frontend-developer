@@ -11,35 +11,29 @@ const App = () => {
   // states
 
   const [apiCall, setApiCall] = useState({});
-  const [image, setImage] = useState("");
+  const [imgSrc, setImgSrc] = useState(null);
 
-  // // api
-  // useEffect(() => {
-  //   getDataFromApi()
-  //     .then((data) => {
-  //       setApiCall(data);
-  //     })
-  //     .catch(console.error);
-  // }, []);
-
-  const handleScanner = useEffect(() => {
-    console.log("Activado :)");
+  const openScanner = useEffect(() => {
     getDataFromApi()
       .then((data) => {
         setApiCall(data);
       })
       .catch(console.error);
   }, [setApiCall]);
+
+  const handleScanner = (imageSrc: string) => {
+    setImgSrc(imageSrc);
+  }
   
   return (
     <div className="home">
       <Switch>
         <Route exact path="/">
           <Header />
-          <IdCard handleScanner={handleScanner} />
+          <IdCard openScanner={openScanner} />
         </Route>
         <Route path="/scanner">
-          <Scanner/>
+          <Scanner handleScanner={handleScanner} imgSrc={imgSrc} setImgSrc={setImgSrc} />
         </Route>
       </Switch>
     </div>
