@@ -3,28 +3,30 @@ import Header from "../Header";
 import IdCard from "../IdCard";
 import Scanner from "./Scanner";
 import { getDataFromApi } from "../../services/api";
-
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import "../../stylesheets/Home.scss";
 
 const App = () => {
   // states
-
-  const [apiCall, setApiCall] = useState({});
-  const [imgSrc, setImgSrc] = useState(null);
-  const [isValid, setIsValid] = useState(false);
+  const [imgSrc, setImgSrc] = useState<string>(null);
+  const [isValid, setIsValid] = useState<boolean>(false);
 
   const openScanner = useEffect(() => {
     getDataFromApi()
       .then((data) => {
-        setApiCall(data);
+        console.log(data);
+        if (data === "Approved") {
+          setIsValid(true);
+        } else if (data === "Too Much Glare") {
+          setIsValid(false);
+        }
       })
       .catch(console.error);
-  }, [setApiCall]);
-
+  }, []);
+  
   const handleScanner = (imageSrc: string) => {
     setImgSrc(imageSrc);
-  }
+  };
 
   return (
     <div className="home">
@@ -33,8 +35,8 @@ const App = () => {
           <Header />
           <IdCard openScanner={openScanner} handleScanner={handleScanner} imageSrc={imgSrc}/>
         </Route>
-        <Route path="/scanner">
-          <Scanner handleScanner={handleScanner} imgSrc={imgSrc} setImgSrc={setImgSrc} />
+        <Route >
+          {imgSrc ? <Redirect to="/"/> : <Scanner handleScanner={handleScanner} imgSrc={imgSrc} setImgSrc={setImgSrc} />}    
         </Route>
       </Switch>
     </div>

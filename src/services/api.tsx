@@ -7,22 +7,22 @@ interface Request {
   body: string,
 }
 
-interface RequestResult {
-  summary: {
-    outcome: string,
-  }
-}
+// interface RequestResult {
+//   summary: {
+//     outcome: string,
+//   }
+// }
 
 const requestOptions: Request = {
   method: "POST",
   body: raw,
 };
 
-const getDataFromApi = (): Promise<RequestResult> => {
+const getDataFromApi = (): Promise<string> => {
   return fetch(ENDPOINT, requestOptions)
     .then((resp) => resp.json())
     .then((data) => {
-      return data;
+      return data.summary.outcome;
     });
 };
 

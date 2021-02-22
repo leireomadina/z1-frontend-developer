@@ -9,22 +9,24 @@ const videoConstraints = {
 
 interface ScannerProps {
   imgSrc: string;
-  setImgSrc: any,
+  setImgSrc: any;
   handleScanner: any;
 }
 
 const Scanner = (props: ScannerProps) => {
-  const {imgSrc, setImgSrc} = props;
-  const webcamRef= useRef<any>(null);
-
-  // useEffect(() => {
-   
-  // }, 1500);
+  const { imgSrc, setImgSrc } = props;
+  const webcamRef = useRef<any>(null);
 
   const capture = useCallback(() => {
-      const imageSrc = webcamRef.current?.getScreenshot();
-      props.handleScanner(imageSrc);
+    const imageSrc = webcamRef.current?.getScreenshot();
+    props.handleScanner(imageSrc);
   }, [webcamRef, setImgSrc]);
+
+  useEffect((): any => {
+    setTimeout(() => {
+      capture();
+    }, 2000);
+  }, []);
 
   return (
     <>
@@ -32,10 +34,10 @@ const Scanner = (props: ScannerProps) => {
         <section className="scanner">
           <h1 className="scanner__title">Take picture</h1>
           <p className="scanner__text">
-            Fit your ID card inside the frame. The picture will be taken automatically.
+            Fit your ID card inside the frame. The picture will be taken
+            automatically.
           </p>
-          <button onClick={capture}>Sacar foto</button>
-          {imgSrc && <img src={imgSrc} alt="" title="" width="200px"/>}
+          {imgSrc && <img src={imgSrc} alt="User cam result" title="User cam result"/>}
           <div className="scanner__video-container">
             <Webcam
               audio={false}
@@ -45,11 +47,10 @@ const Scanner = (props: ScannerProps) => {
               ref={webcamRef}
             />
           </div>
-          <p className="scanner__text">
-            Room lightning is too low.
-          </p>
           <Link to="/">
-            <button type="button" className="scanner__btn">Cancel</button>
+            <button type="button" className="scanner__btn">
+              Cancel
+            </button>
           </Link>
         </section>
       </main>
